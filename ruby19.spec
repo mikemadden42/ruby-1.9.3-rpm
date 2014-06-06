@@ -1,5 +1,5 @@
 %define rubyver         1.9.3
-%define rubyminorver    p545
+%define rubyminorver    p547
 
 Name:           ruby
 Version:        %{rubyver}%{rubyminorver}
@@ -70,6 +70,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Jun 6 2014 Michael Madden <mikemadden42@gmail.com> - 1.9.3-p547
+- Update for Ruby 1.9.3-p547 release.
 * Thu Sep 19 2013 Daniel Haskin <djhaskin987@gmail.com> - 1.9.3-p448
 - Added man pages entries
 * Thu Jun 27 2013 Henrik <henrik@haf.se> - 1.9.3-p448

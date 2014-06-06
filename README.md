@@ -6,15 +6,15 @@ This spec is an attempt to push for a stable replacement of Ruby 1.8.x with 1.9.
 
 #### RHEL/CentOS 5/6
 
-    yum install -y rpm-build rpmdevtools readline-devel ncurses-devel gdbm-devel tcl-devel openssl-devel db4-devel byacc libyaml-devel libffi-devel make
+    yum install -y rpm-build rpmdevtools readline-devel ncurses-devel gdbm-devel tcl-devel openssl-devel db4-devel byacc libyaml-devel libffi-devel make glibc-devel gcc
     rpmdev-setuptree
     cd ~/rpmbuild/SOURCES
     RUBY_VER=ruby-1.9.3
-    RUBY_SUBVER=p545
-    wget http://ftp.ruby-lang.org/pub/ruby/1.9/${RUBY_VER}-${RUBY_SUBVER}.tar.gz
+    RUBY_SUBVER=p547
+    wget -c http://ftp.ruby-lang.org/pub/ruby/1.9/${RUBY_VER}-${RUBY_SUBVER}.tar.gz
     cd ~/rpmbuild/SPECS
-    wget https://raw.github.com/imeyer/${RUBY_VER}-rpm/master/ruby19.spec
-    rpmbuild -bb ruby19.spec
+    wget -c https://raw.githubusercontent.com/mikemadden42/${RUBY_VER}-rpm/master/ruby19.spec
+    rpmbuild --clean -ba --target=$(arch) ruby19.spec
     ARCH=`uname -m`
     KERNEL_REL=`uname -r`
     KERNEL_TMP=${KERNEL_REL%.$ARCH}
