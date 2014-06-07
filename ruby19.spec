@@ -7,8 +7,7 @@ Release:        1%{?dist}
 License:        Ruby License/GPL - see COPYING
 URL:            http://www.ruby-lang.org/
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  readline libyaml libyaml-devel readline-devel ncurses ncurses-devel gdbm gdbm-devel glibc-devel tcl-devel gcc unzip openssl-devel db4-devel byacc make libffi-devel
-Requires:       libyaml
+BuildRequires:  byacc db4-devel gcc gdbm gdbm-devel glibc-devel libffi libffi-devel libyaml libyaml-devel make ncurses ncurses-devel openssl-devel readline readline-devel tcl-devel unzip
 Source0:        ftp://ftp.ruby-lang.org/pub/ruby/ruby-%{rubyver}-%{rubyminorver}.tar.gz
 Summary:        An interpreter of object-oriented scripting language
 Group:          Development/Languages
@@ -41,6 +40,8 @@ export CFLAGS="$RPM_OPT_FLAGS -Wall -fno-strict-aliasing"
 %configure \
   --enable-shared \
   --disable-rpath \
+  --without-X11 \
+  --without-tk \
   --includedir=%{_includedir}/ruby \
   --libdir=%{_libdir}
 
@@ -62,11 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}
 %{_datadir}
 %{_libdir}
-%doc %{_mandir}/man1/erb.1.gz
-%doc %{_mandir}/man1/irb.1.gz
-%doc %{_mandir}/man1/rake.1.gz
-%doc %{_mandir}/man1/ri.1.gz
-%doc %{_mandir}/man1/ruby.1.gz
 
 
 %changelog
