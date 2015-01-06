@@ -10,7 +10,7 @@ This spec is an attempt to push for a stable replacement of Ruby 1.8.x with 1.9.
     rpmdev-setuptree
     cd ~/rpmbuild/SOURCES
     RUBY_VER=ruby-1.9.3
-    RUBY_SUBVER=p547
+    RUBY_SUBVER=p551
     wget -c http://ftp.ruby-lang.org/pub/ruby/1.9/${RUBY_VER}-${RUBY_SUBVER}.tar.gz
     cd ~/rpmbuild/SPECS
     wget -c https://raw.githubusercontent.com/mikemadden42/${RUBY_VER}-rpm/master/ruby19.spec
